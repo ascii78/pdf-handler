@@ -35,7 +35,6 @@ The pdf URLs are in the form of shortfilename + pagenum like:
    - i've never used vbs before but:
        - python: could not let me open files in the same tab using Popen
        - powershell: shows/flashes a short console window which you can not get rid of [#3028](https://github.com/PowerShell/PowerShell/issues/3028)
-       [^2]
        - vbscript: works and is installed by default on win10
 
   - regarding pdf readers these are the only ones that work by actually
