@@ -1,54 +1,7 @@
 '
-' pdf url handler, this accepts URLs in the form of pdfshortname + pagenum like:
+' For usage instructions see: https://github.com/ascii78/pdf-handler
 '
-' pdf://shortfilename:40
-'
-' note that:
-'   - there is NO pdf extension needed for filename, this is to keep the url short
-'   - please change PdfDir in script to where your pdfs are located
-'   - advise: if you need to type the url a lot, try renaming your file to 
-'     something short like: 'Very Long Book Title.pdf', 'vlbt.pdf'
-'   - choose a pdf reader below, these are the only ones that work by actually changing
-'     the page in the _current_ tab. almost all others will open a new tab or
-'     window even if the file is already open (eg. acrobatreader)
-'   - for this to work you need an entry in the registry
-'
-' if you are a developer:
-'   - i've never used vbs before but:
-'       - python: could not let me open files in the same tab by using Popen
-'       - powershell: shows/flashes a short cmd/console window which you can
-'                     not get rid off.
-'       - vbscript: works and is installed by default on win10
-'
-' DISCLAIMER:
-'
-'   - if someone sends you a pdf:// link and bad things happen, then welcome
-'     to the nineties...
-'
-' copy the following for to a .reg file, remove leading ', point the command 
-' location to where you copied this file.
-
-' ---
-
-' Windows Registry Editor Version 5.00
-
-' [HKEY_CLASSES_ROOT\pdf]
-' @="URL:pdf Protocol"
-' "URL Protocol"=""
-
-' [HKEY_CLASSES_ROOT\pdf\shell]
-
-' [HKEY_CLASSES_ROOT\pdf\shell\open]
-
-' [HKEY_CLASSES_ROOT\pdf\shell\open\command]
-' @="wscript \"C:\\Users\\username\\Documents\\pdf-handler.vbs\"  %1"
-
-'---
-
-' to disable onenote warnings read:
-' https://superuser.com/questions/1307645/how-to-disable-hyperlink-security-notice-in-onenote-2016
-'
-
+' Make sure to set PDFexe and PdfDir below
 Dim PdfExe
 ' https://kb.foxitsoftware.com/hc/en-us/articles/360042671711-Parameters-for-Opening-PDF-Files-with-a-command
 pdfExe="""C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe"""
@@ -57,7 +10,7 @@ pdfExe="""C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe"""
 Dim PdfDir
 
 ' change this:
-PdfDir="C:\Users\frido\Documents\pdf\"
+PdfDir="C:\Users\username\Documents\pdf\"
 
 Dim RegEx
 Set RegEx = New RegExp
